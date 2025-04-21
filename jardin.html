@@ -218,8 +218,47 @@
             </ul>
             <p>Ces animaux contribuent à l'équilibre naturel du domaine. Leur présence rappelle l'importance de préserver la biodiversité et offre aux visiteurs une expérience immersive dans un environnement naturel préservé.</p>
           </div>
-          <div class="ecosystem-image">
-            <img src="images/palombes.jpg" alt="Palombes et autres animaux">
+          <div class="carousel-container">
+            <div class="carousel-slide active">
+              <img src="images/animaux/animaux1.jpeg" alt="photo palombes">
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/animaux/animaux2.jpeg" alt="photo cheval">
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/animaux/animaux3.jpeg" alt="photo hamster">
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/animaux/animaux4.jpeg" alt="photo carpe">
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/animaux/animaux5.jpeg" alt="photo oiseaux">
+              <div class="carousel-caption">
+
+              </div>
+            </div>
+            <button class="carousel-btn prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+ 
+            <div class="carousel-dots">
+              <span class="dot active" data-slide="0"></span>
+              <span class="dot " data-slide="1"></span>
+              <span class="dot" data-slide="2"></span>
+              <span class="dot" data-slide="3"></span>
+              <span class="dot " data-slide="4"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -293,7 +332,65 @@
         e.preventDefault();
         alert("La galerie d'images sera bientôt disponible !");
       });
+    }); 
+    // Carousel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+  // Sélection directe du carousel sans dépendre d'une classe spécifique
+  const carouselContainer = document.querySelector('.carousel-container');
+  const slides = carouselContainer.querySelectorAll('.carousel-slide');
+  const dots = carouselContainer.querySelectorAll('.dot');
+  const nextBtn = carouselContainer.querySelector('.next');
+  const prevBtn = carouselContainer.querySelector('.prev');
+  const totalSlides = slides.length;
+  let currentSlide = 0;
+
+  // Function to show a specific slide
+  function showSlide(index) {
+    // Hide all slides
+    slides.forEach(slide => {
+      slide.classList.remove('active');
     });
+    
+    // Remove active class from all dots
+    dots.forEach(dot => {
+      dot.classList.remove('active');
+    });
+    
+    // Show the selected slide and activate corresponding dot
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    
+    currentSlide = index;
+  }
+
+  // Réinitialisation forcée au chargement
+  showSlide(0);
+
+  // Bouton suivant devient précédent (direction inversée)
+  nextBtn.addEventListener('click', function() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  // Bouton précédent devient suivant (direction inversée)
+  prevBtn.addEventListener('click', function() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  });
+
+  // Dot navigation reste inchangée
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      showSlide(index);
+    });
+  });
+
+  // Autoplay avec direction inversée (de droite à gauche)
+  setInterval(function() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }, 5000);
+});
   </script>
 </body>
 </html> 
