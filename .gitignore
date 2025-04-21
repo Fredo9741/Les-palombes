@@ -1,0 +1,25 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers d'environnement
+.env
+.env.*
+
+# Fichiers logs
+*.log
+
+# Dossiers cache
+.cache/
+.tmp/
+
+# Dossiers d'IDE/éditeurs
+.idea/
+.vscode/
+*.sublime-*
+.brackets.json
+.editorconfig
+
+# Dépendances (si ajoutées plus tard)
+/node_modules/
+/vendor/ 

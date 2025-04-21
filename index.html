@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Les Palombes, un havre de paix à La Ménitré entre Angers et Saumur. Location d'appartements, camping et hébergements insolites en pleine nature.">
+  <title>Les Palombes – Accueil</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" href="images/logo-palombes-favicon.png" type="image/png">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="images/logo-palombes.png" alt="Logo Les Palombes" class="site-logo">
+      <h1>Les Palombes</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="appartements.html">Appartements</a></li>
+        <li><a href="camping.html">Camping</a></li>
+        <li><a href="jardin.html">Jardin</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="images/logement.jpg" alt="Vue des hébergements">
+          <div class="carousel-caption">
+            <h2>Bienvenue aux Palombes</h2>
+            <p>Un havre de paix à La Ménitré, entre Angers et Saumur</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="images/verger.jpg" alt="Le verger">
+          <div class="carousel-caption">
+            <h2>Un cadre naturel exceptionnel</h2>
+            <p>Découvrez notre verger avec plus de 70 essences d'arbres</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="images/caravane.jpg" alt="Hébergements insolites">
+          <div class="carousel-caption">
+            <h2>Des hébergements pour tous</h2>
+            <p>Appartements, camping, hébergements insolites...</p>
+          </div>
+        </div>
+        <button class="carousel-btn prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro">
+      <h2>Un éco-lieu unique en Val de Loire</h2>
+      <p>Situé au cœur de la vallée de la Loire, <strong>Les Palombes</strong> vous offre un cadre exceptionnel pour vous ressourcer et vous reconnecter à la nature. Entouré d'un verger luxuriant, notre domaine propose différents types d'hébergements pour répondre à toutes vos envies.</p>
+      <div class="intro-features">
+        <div class="feature">
+          <i class="fas fa-leaf"></i>
+          <span>Environnement naturel</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-bicycle"></i>
+          <span>Pistes cyclables à proximité</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-wifi"></i>
+          <span>WiFi gratuit</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-parking"></i>
+          <span>Parking privé</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="presentation">
+      <h2>Nos hébergements</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="images/logement.jpg" alt="Logement">
+          <h3>Logements meublés</h3>
+          <p>Deux logements confortables : l'un à louer au mois, l'autre pour les séjours saisonniers.</p>
+          <a href="appartements.html" class="card-link">Voir les détails <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <img src="images/caravane.jpg" alt="Caravane à louer">
+          <h3>Caravane</h3>
+          <p>Une caravane aménagée sur place, pour un séjour simple et original en pleine nature.</p>
+          <a href="camping.html" class="card-link">Découvrir <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <img src="images/emplacement.jpg" alt="Emplacements camping-car">
+          <h3>Emplacements</h3>
+          <p>5 emplacements pour camping-car ou caravane, au calme et proches des commodités.</p>
+          <a href="camping.html" class="card-link">Explorer <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card">
+          <img src="images/insolite.jpg" alt="Hébergement insolite">
+          <h3>Hébergements insolites</h3>
+          <p>5 logements en construction pour des séjours atypiques et ressourçants.</p>
+          <span class="coming-soon">Bientôt disponible</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="verger">
+      <div class="verger-content">
+        <div class="verger-text">
+          <h2>Un environnement naturel unique</h2>
+          <p>Les Palombes, c'est aussi un immense verger où cohabitent de nombreuses essences d'arbres fruitiers, un bassin aquatique et des animaux. Un petit paradis pour les amoureux de la nature et du calme.</p>
+          <ul class="verger-list">
+            <li><i class="fas fa-seedling"></i> Plus de 70 essences d'arbres</li>
+            <li><i class="fas fa-apple-alt"></i> Fruits de saison à déguster</li>
+            <li><i class="fas fa-fish"></i> Bassin avec carpes koï et guppys</li>
+            <li><i class="fas fa-dove"></i> Animaux du domaine à découvrir</li>
+          </ul>
+          <a href="jardin.html" class="card-link">Découvrir notre écosystème <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="verger-image">
+          <img src="images/verger.jpg" alt="Le verger des Palombes">
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>Ce que disent nos visiteurs</h2>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Un endroit magnifique, calme et reposant. Les hôtes sont accueillants et le cadre est idyllique. Le verger est un vrai plus !"</p>
+          <p class="testimonial-author">- Marie L.</p>
+        </div>
+        <div class="testimonial">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="testimonial-text">"Parfait pour notre week-end en famille. L'appartement était très propre et bien équipé. Les enfants ont adoré découvrir le verger."</p>
+          <p class="testimonial-author">- Thomas D.</p>
+        </div>
+        <div class="testimonial">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"L'emplacement de camping était parfait, avec tout le nécessaire à proximité. Un accueil chaleureux et un site naturel exceptionnel."</p>
+          <p class="testimonial-author">- Camille et Pierre</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-logo">
+          <img src="images/logo-palombes.png" alt="Logo Les Palombes" class="footer-logo-img">
+        </div>
+        <h3>Les Palombes</h3>
+        <p>La Ménitré, 49250</p>
+        <p>Entre Angers et Saumur</p>
+        <p>contact@lespalombes.fr</p>
+        <p>06 12 34 56 78</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="appartements.html">Appartements</a></li>
+          <li><a href="camping.html">Camping</a></li>
+          <li><a href="jardin.html">Jardin</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Suivez-nous</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2025 Les Palombes – Tous droits réservés</p>
+  </footer>
+
+  <script>
+    // Carousel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.dot');
+      const totalSlides = slides.length;
+
+      // Function to show a specific slide
+      function showSlide(index) {
+        // Hide all slides
+        slides.forEach(slide => {
+          slide.classList.remove('active');
+        });
+        
+        // Remove active class from all dots
+        dots.forEach(dot => {
+          dot.classList.remove('active');
+        });
+        
+        // Show the selected slide and activate corresponding dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+      }
+
+      // Next slide
+      document.querySelector('.next').addEventListener('click', function() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      });
+
+      // Previous slide
+      document.querySelector('.prev').addEventListener('click', function() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+      });
+
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+          showSlide(index);
+        });
+      });
+
+      // Auto-advance slides every 5 seconds
+      setInterval(function() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
