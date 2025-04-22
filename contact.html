@@ -27,63 +27,91 @@
   </header>
 
   <main>
-    <section>
-      <h2>Contact & Présentation</h2>
+    <h2>Contact & Présentation</h2>
 
-      <section class="porteurs">
-        <article>
-          <img src="images/ghislain.jpg" alt="Ghislain Paillot">
-          <h3>Ghislain Paillot</h3>
-          <p>Propriétaire du lieu et porteur du projet d'éco-lieu Les Palombes. Se définissant comme « bourlingueur », ses racines sont ligériennes. Après de multiples voyages et entreprises en DOM TOM, il rachète ce bien en 2021 dans la perspective d'en faire un lieu ouvert et vivant.</p>
-          <p>À l'initiative de ce projet, il envisage cette aventure à la fois comme un retour aux sources et à ses racines. Amoureux et respectueux de la nature et de son environnement, il a désormais envie de partager sa passion auprès des voyageurs.</p>
-        </article>
+    <div class="contact-container">
+      <!-- Colonne de gauche avec le formulaire -->
+      <section class="contact-form-section">
+        <div class="formulaire-contact">
+          <h3><i class="fas fa-paper-plane"></i> Envoyez-nous un message</h3>
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="nom">Nom :</label>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            </div>
 
-        <article>
-          <img src="images/alexandre.jpg" alt="Alexandre Gillet">
-          <h3>Alexandre Gillet</h3>
-          <p>Arboriculteur et paysagiste, Alexandre est un passionné volontaire, très vigilant sur l'entretien du lieu. Ses connaissances et son expertise permettent au verger des Palombes de s'épanouir et d'offrir un cadre exceptionnel aux visiteurs.</p>
-        </article>
-      </section>
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+            </div>
 
-      <section class="formulaire-contact">
-        <h3>Envoyez-nous un message</h3>
-        <form action="#" method="post">
-          <label for="nom">Nom :</label>
-          <input type="text" id="nom" name="nom" required>
+            <div class="form-group">
+              <label for="objet">Objet :</label>
+              <select id="objet" name="objet">
+                <option value="renseignement">Demande de renseignements</option>
+                <option value="reservation">Réservation</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
 
-          <label for="email">Email :</label>
-          <input type="email" id="email" name="email" required>
+            <div class="form-group">
+              <label for="message">Message :</label>
+              <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
+            </div>
 
-          <label for="objet">Objet :</label>
-          <select id="objet" name="objet">
-            <option value="renseignement">Demande de renseignements</option>
-            <option value="reservation">Réservation</option>
-            <option value="suggestion">Suggestion</option>
-            <option value="autre">Autre</option>
-          </select>
+            <button type="submit" class="btn-contact">Envoyer <i class="fas fa-arrow-right"></i></button>
+          </form>
+        </div>
 
-          <label for="message">Message :</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
-
-          <button type="submit">Envoyer</button>
-        </form>
-      </section>
-
-      <section class="verger-preview">
-        <h3>La Ménitré et ses alentours</h3>
-        <p>Nichée entre Angers et Saumur, La Ménitré est un joli village bordant la Loire. Cette région, classée au patrimoine mondial de l'UNESCO, offre un cadre de vie exceptionnel avec ses paysages ligériens, ses châteaux historiques et ses vignobles réputés. Les amoureux de nature apprécieront les balades à vélo sur la Loire à Vélo, les promenades en bateau traditionnel, et la découverte des produits du terroir dans les marchés locaux.</p>
-        <div class="verger-images">
-          <img src="images/coucher-soleil-loire.jpg" alt="Coucher de soleil sur la Loire">
+        <!-- Carte directement sous le formulaire dans la colonne de gauche -->
+        <div class="contact-info">
+          <h3><i class="fas fa-map-marker-alt"></i> Nous trouver</h3>
+          <p><i class="fas fa-home"></i> <strong>Adresse :</strong> Les Palombes, La Ménitré, 49250</p>
+          <p><i class="fas fa-phone"></i> <strong>Téléphone :</strong> 06 12 34 56 78</p>
+          <p><i class="fas fa-envelope"></i> <strong>Email :</strong> contact@lespalombes.fr</p>
         </div>
       </section>
-    </section>
+
+      <!-- Colonne de droite avec l'équipe et la région -->
+      <section class="contact-info-section">
+        <div class="team-section">
+          <h3><i class="fas fa-users"></i> Notre équipe</h3>
+          <div class="team-members">
+            <div class="team-member">
+              <img src="images/ghislain.webp" alt="Ghislain Paillot">
+              <div class="team-details">
+                <h4>Ghislain Paillot</h4>
+                <p>Propriétaire du lieu et porteur du projet d'éco-lieu Les Palombes. Après de multiples voyages, il rachète ce bien en 2021 dans la perspective d'en faire un lieu ouvert et vivant.</p>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <img src="images/alexandre.webp" alt="Alexandre Gillet">
+              <div class="team-details">
+                <h4>Alexandre Gillet</h4>
+                <p>Arboriculteur et paysagiste, passionné volontaire, très vigilant sur l'entretien du lieu. Son expertise permet au verger des Palombes de s'épanouir.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-section">
+          <h3><i class="fas fa-tree"></i> La Ménitré et ses alentours</h3>
+          <div class="region-content">
+            <p>Nichée entre Angers et Saumur, La Ménitré est un joli village bordant la Loire. Cette région, classée au patrimoine mondial de l'UNESCO, offre un cadre de vie exceptionnel avec ses paysages ligériens, ses châteaux historiques et ses vignobles réputés.</p>
+            <div class="region-image">
+              <img src="images/coucher-soleil-loire.webp" alt="Coucher de soleil sur la Loire">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <section class="map-section">
-      <h2>Nous trouver</h2>
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21559.215522829805!2d-0.33776233956299035!3d47.40518307323962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4807d9e42d389ee5%3A0x9bbbf3276b8c1919!2s49250%20La%20M%C3%A9nitr%C3%A9!5e0!3m2!1sfr!2sfr!4v1715354894261!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21559.215522829805!2d-0.33776233956299035!3d47.40518307323962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4807d9e42d389ee5%3A0x9bbbf3276b8c1919!2s49250%20La%20M%C3%A9nitr%C3%A9!5e0!3m2!1sfr!2sfr!4v1715354894261!5m2!1sfr!2sfr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <p class="location-info">Les Palombes se situe à La Ménitré, dans un cadre verdoyant à proximité de la Loire, à mi-chemin entre Angers et Saumur.</p>
     </section>
   </main>
 
@@ -91,7 +119,7 @@
     <div class="footer-content">
       <div class="footer-info">
         <div class="footer-logo">
-          <img src="images/logo-palombes.png" alt="Logo Les Palombes" class="footer-logo-img">
+          <img src="images/logo-palombes.webp" alt="Logo Les Palombes" class="footer-logo-img">
         </div>
         <h3>Les Palombes</h3>
         <p>La Ménitré, 49250</p>

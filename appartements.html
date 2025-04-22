@@ -37,9 +37,10 @@
         <h3>Appartement saisonnier</h3>
         <div class="logement-content">
           <div class="logement-images">
-            <img src="images/appartement-saisonnier.jpg" alt="Appartement saisonnier">
-            <div class="image-gallery">
-              <a href="#" class="gallery-btn">Voir plus de photos</a>
+            <div class="carousel-container">
+              <button id="left-btn" class="carousel-btn"><i class="arrow"></i></button>
+              <img id="carousel-saisonnier" src="images/logement/saisonnier0.webp" alt="Appartement saisonnier">
+              <button id="right-btn" class="carousel-btn"><i class="arrow"></i></button>
             </div>
           </div>
           <div class="logement-details">
@@ -75,10 +76,7 @@
         <h3>Appartement mensuel <strong>(Occupé)</strong></h3>
         <div class="logement-content">
           <div class="logement-images">
-            <img src="images/appartement-mensuel.jpg" alt="Appartement au mois">
-            <div class="image-gallery">
-              <a href="#" class="gallery-btn">Voir plus de photos</a>
-            </div>
+            <img src="images/appartement-mensuel.webp" alt="Appartement au mois">
           </div>
           <div class="logement-details">
             <div class="caracteristiques">
@@ -153,6 +151,18 @@
     <p class="copyright">&copy; 2025 Les Palombes – Tous droits réservés</p>
   </footer>
 
+  <!-- Modale pour afficher les images en grand -->
+  <div id="image-modal" class="image-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="modal-carousel">
+        <button id="modal-left-btn" class="modal-carousel-btn"><i class="arrow"></i></button>
+        <img id="modal-image" src="" alt="Image en grand format">
+        <button id="modal-right-btn" class="modal-carousel-btn"><i class="arrow"></i></button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Simple script pour simuler l'interaction avec les galeries d'images
     document.querySelectorAll('.gallery-btn').forEach(button => {
@@ -170,6 +180,127 @@
           alert('Le système de réservation sera bientôt disponible. En attendant, contactez-nous directement !');
         } else {
           alert('Pour vérifier les disponibilités, veuillez nous contacter via le formulaire de contact.');
+        }
+      });
+    });
+
+    // Script pour le carrousel d'appartement saisonnier
+    document.addEventListener('DOMContentLoaded', function() {
+      const img = document.getElementById('carousel-saisonnier');
+      const rightBtn = document.getElementById('right-btn');
+      const leftBtn = document.getElementById('left-btn');
+
+      // Liste des images du carrousel
+      let pictures = [
+        'images/logement/saisonnier0.webp',
+        'images/logement/saisonnier1.webp',
+        'images/logement/saisonnier2.webp',
+        'images/logement/saisonnier3.webp',
+        'images/logement/saisonnier4.webp',
+        'images/logement/saisonnier5.webp',
+        'images/logement/saisonnier6.webp',
+        'images/logement/saisonnier7.webp',
+        'images/logement/saisonnier8.webp',
+        'images/logement/saisonnier9.webp',
+        'images/logement/saisonnier10.webp'
+      ];
+
+      // Initialisation
+      img.src = pictures[0];
+      let position = 0;
+
+      // Fonction pour passer à l'image suivante
+      const moveRight = () => {
+        if (position >= pictures.length - 1) {
+          position = 0;
+          img.src = pictures[position];
+          return;
+        }
+        img.src = pictures[position + 1];
+        position++;
+      };
+
+      // Fonction pour passer à l'image précédente
+      const moveLeft = () => {
+        if (position < 1) {
+          position = pictures.length - 1;
+          img.src = pictures[position];
+          return;
+        }
+        img.src = pictures[position - 1];
+        position--;
+      };
+
+      // Ajout des écouteurs d'événements
+      rightBtn.addEventListener('click', moveRight);
+      leftBtn.addEventListener('click', moveLeft);
+
+      // Préchargement des images pour une expérience plus fluide
+      pictures.forEach(src => {
+        const imgLoader = new Image();
+        imgLoader.src = src;
+      });
+
+      // Gestion de la modale d'affichage en grand
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-image');
+      const closeModal = document.querySelector('.close-modal');
+      const modalLeftBtn = document.getElementById('modal-left-btn');
+      const modalRightBtn = document.getElementById('modal-right-btn');
+      let modalPosition = 0;
+
+      // Ouvrir la modale au clic sur l'image du carrousel
+      img.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImg.src = this.src;
+        modalPosition = position; // Synchroniser les positions
+        document.body.style.overflow = 'hidden'; // Empêcher le défilement de la page
+      });
+
+      // Fermer la modale
+      closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Réactiver le défilement de la page
+      });
+
+      // Fermer la modale en cliquant en dehors de l'image
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Réactiver le défilement de la page
+        }
+      });
+
+      // Navigation dans la modale
+      modalRightBtn.addEventListener('click', function() {
+        if (modalPosition >= pictures.length - 1) {
+          modalPosition = 0;
+        } else {
+          modalPosition++;
+        }
+        modalImg.src = pictures[modalPosition];
+      });
+
+      modalLeftBtn.addEventListener('click', function() {
+        if (modalPosition < 1) {
+          modalPosition = pictures.length - 1;
+        } else {
+          modalPosition--;
+        }
+        modalImg.src = pictures[modalPosition];
+      });
+
+      // Gestion des touches du clavier
+      document.addEventListener('keydown', function(event) {
+        if (modal.style.display === 'block') {
+          if (event.key === 'ArrowRight') {
+            modalRightBtn.click();
+          } else if (event.key === 'ArrowLeft') {
+            modalLeftBtn.click();
+          } else if (event.key === 'Escape') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
         }
       });
     });
