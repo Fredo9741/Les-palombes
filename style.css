@@ -843,7 +843,7 @@
   .garden-hero {
     position: relative;
     height: 400px;
-    background: url('images/verger.jpg') center/cover no-repeat;
+    background: url('images/verger.webp') center/cover no-repeat;
     border-radius: 15px;
     margin-bottom: 40px;
     display: flex;
