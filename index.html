@@ -191,6 +191,53 @@
         </div>
       </div>
     </section>
+
+    <section class="proximite">
+      <h2>Commodités à proximité</h2>
+      <p class="intro-text">Les Palombes sont idéalement situées à La Ménitré, avec de nombreux commerces et services accessibles à pied :</p>
+      
+      <div class="services-grid proximite-grid">
+        <div class="service-item proximite-item">
+          <i class="fas fa-bread-slice"></i>
+          <h4>Boulangerie</h4>
+          <p>À seulement 5 minutes à pied, profitez de pains frais et de pâtisseries artisanales tous les jours.</p>
+        </div>
+        
+        <div class="service-item proximite-item">
+          <i class="fas fa-pills"></i>
+          <h4>Pharmacie</h4>
+          <p>Une pharmacie complète est disponible à moins de 10 minutes à pied pour tous vos besoins médicaux.</p>
+        </div>
+        
+        <div class="service-item proximite-item">
+          <i class="fas fa-shopping-basket"></i>
+          <h4>Supérette</h4>
+          <p>Une supérette bien achalandée se trouve à 8 minutes à pied pour vos courses alimentaires et produits essentiels.</p>
+        </div>
+        
+        <div class="service-item proximite-item">
+          <i class="fas fa-envelope"></i>
+          <h4>Bureau de poste</h4>
+          <p>Le bureau de poste accessible en 7 minutes vous permet d'envoyer et recevoir du courrier pendant votre séjour.</p>
+        </div>
+        
+        <div class="service-item proximite-item">
+          <i class="fas fa-utensils"></i>
+          <h4>Restaurants</h4>
+          <p>Plusieurs options de restauration sont disponibles dans un rayon de 10 minutes, des restaurants traditionnels aux plats à emporter.</p>
+        </div>
+        
+        <div class="service-item proximite-item">
+          <i class="fas fa-bus"></i>
+          <h4>Transports en commun</h4>
+          <p>Arrêt de bus à proximité permettant de rejoindre Angers ou Saumur facilement sans votre véhicule.</p>
+        </div>
+      </div>
+      
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21509.56296764221!2d-0.2030173173744413!3d47.423284728062095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fbe16601b200b1%3A0x40d37521e0baf40!2s49250%20La%20M%C3%A9nitr%C3%A9!5e0!3m2!1sfr!2sfr!4v1713948865281!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -202,82 +249,91 @@
         <h3>Les Palombes</h3>
         <p>La Ménitré, 49250</p>
         <p>Entre Angers et Saumur</p>
-        <p>contact@lespalombes.fr</p>
-        <p>06 12 34 56 78</p>
+        <p>Tel: 06 12 34 56 78</p>
+        <p>Email: contact@lespalombes.fr</p>
       </div>
       <div class="footer-nav">
-        <h4>Navigation</h4>
+        <h3>Plan du site</h3>
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="appartements.html">Appartements</a></li>
           <li><a href="camping.html">Camping</a></li>
           <li><a href="jardin.html">Jardin</a></li>
+          <li><a href="palombe.html">Visites touristiques</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-social">
-        <h4>Suivez-nous</h4>
-        <div class="social-icons">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
-        </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
-    <p class="copyright">&copy; 2025 Les Palombes – Tous droits réservés</p>
+    <div class="copyright">
+      <p>&copy; 2023 Les Palombes. Tous droits réservés.</p>
+    </div>
   </footer>
 
   <script>
-    // Carousel functionality
+    // Carousel automatique pour la page d'accueil
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide-index');
+    const dots = document.querySelectorAll('.dot-index');
+    const totalSlides = slides.length;
+    
+    function showSlide(n) {
+      // Cache toutes les slides
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      // Affiche la slide actuelle
+      slides[n].classList.add('active');
+      dots[n].classList.add('active');
+      currentSlide = n;
+    }
+    
+    // Navigation vers la slide suivante
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+    
+    // Navigation vers la slide précédente
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+    
+    // Configuration des boutons de navigation
+    document.querySelector('.carousel-btn-index.next').addEventListener('click', nextSlide);
+    document.querySelector('.carousel-btn-index.prev').addEventListener('click', prevSlide);
+    
+    // Configuration des points de navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+      });
+    });
+    
+    // Défilement automatique
+    setInterval(nextSlide, 5000);
+    
+    // Menu mobile
     document.addEventListener('DOMContentLoaded', function() {
-      let currentSlide = 0;
-      const slides = document.querySelectorAll('.carousel-slide-index');
-      const dots = document.querySelectorAll('.dot-index ');
-      const totalSlides = slides.length;
-
-      // Function to show a specific slide
-      function showSlide(index) {
-        // Hide all slides
-        slides.forEach(slide => {
-          slide.classList.remove('active');
-        });
-        
-        // Remove active class from all dots
-        dots.forEach(dot => {
-          dot.classList.remove('active');
-        });
-        
-        // Show the selected slide and activate corresponding dot
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        
-        currentSlide = index;
-      }
-
-      // Next slide
-      document.querySelector('.next').addEventListener('click', function() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        showSlide(currentSlide);
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navMenu = document.getElementById('nav-menu');
+      
+      mobileMenu.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
       });
-
-      // Previous slide
-      document.querySelector('.prev').addEventListener('click', function() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        showSlide(currentSlide);
-      });
-
-      // Dot navigation
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', function() {
-          showSlide(index);
+      
+      // Fermer le menu quand un lien est cliqué
+      const navLinks = document.querySelectorAll('#nav-menu a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
         });
       });
-
-      // Auto-advance slides every 5 seconds
-      setInterval(function() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        showSlide(currentSlide);
-      }, 5000);
     });
   </script>
 </body>

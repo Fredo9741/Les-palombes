@@ -844,60 +844,44 @@
 
   @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px; /* Reduce gap */
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 0;
+      position: relative;
     }
-
+    
     .logo-title {
-        width: 100%;
-        justify-content: center; /* Center logo and title */
-        gap: 10px;
+      width: 100%;
+      padding-right: 50px; /* Espace pour le menu hamburger */
     }
-
-    header h1 {
-        font-size: 2em; /* Adjust H1 size */
-    }
-
-    .site-logo {
-         width: 50px; /* Adjust logo size */
-    }
-
-    nav {
-        width: 100%;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 5px; /* Reduce gap */
-    }
-
-    nav a {
-        padding: 8px 10px; /* Adjust padding */
-        font-size: 0.95em;
-    }
-
+    
     /* Hide desktop nav and show mobile toggle */
      .menu-toggle {
         display: block; /* Show toggle on mobile */
         position: absolute; /* Position absolute for placement */
         right: 20px;
-        top: 20px;
+        top: 15px;
         z-index: 1001; /* Ensure toggle is clickable */
     }
 
     nav ul {
         display: none; /* Hide nav by default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
     }
 
     nav.active ul {
         display: flex; /* Show nav when active */
-        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        background-color: var(--palombe-blue-light); /* Semi-transparent background */
         border-radius: 5px;
-        padding: 10px;
+        padding: 15px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1002;
     }
 
     .verger-images {
@@ -1496,7 +1480,7 @@
   .image-modal {
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 2000; /* Plus élevé que le z-index du header (1000) */
     left: 0;
     top: 0;
     width: 100%;
@@ -1829,6 +1813,47 @@
     .form-group {
       margin-bottom: 15px;
     }
+  }
+
+  /* Styles pour la section des commodités à proximité */
+  .proximite {
+    margin: 50px 0;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+  }
+  
+  .proximite-grid {
+    margin-bottom: 30px;
+  }
+  
+  .proximite-item {
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+  }
+  
+  .proximite-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  }
+  
+  .proximite-item i {
+    color: var(--palombe-blue-dark);
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  .proximite .map-container {
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  .proximite .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   

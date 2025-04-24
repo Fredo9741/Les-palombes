@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="style.css">
     <style>
       /* Styles spécifiques pour la page des activités touristiques */
+      main.container {
+        padding-top: 120px; /* Padding augmenté pour éviter que le titre soit caché par le header */
+      }
+      
       .intro-section {
         margin-bottom: 40px;
       }
@@ -350,7 +354,7 @@
     <section class="map-section">
       <h2>Carte touristique</h2>
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21509.56296764221!2d-0.2030173173744413!3d47.423284728062095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fbe16601b200b1%3A0x40d37521e0baf40!2s49250%20La%20M%C3%A9nitr%C3%A9!5e0!3m2!1sfr!2sfr!4v1713948865281!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21509.56296764221!2d-0.2030173173744413!3d47.423284728062095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fbe16601b200b1%3A0x40d37521e0baf40!2s49250%20La%20M%C3%A9nitr%C3%A9!5e0!3m2!1sfr!2sfr!4v1713948865281!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </main>
@@ -399,6 +403,14 @@
       
       mobileMenu.addEventListener('click', function() {
         navMenu.classList.toggle('active');
+      });
+      
+      // Fermer le menu quand un lien est cliqué
+      const navLinks = document.querySelectorAll('#nav-menu a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
+        });
       });
     });
   </script>

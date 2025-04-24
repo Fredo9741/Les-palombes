@@ -128,7 +128,7 @@
     <div class="footer-content">
       <div class="footer-info">
         <div class="footer-logo">
-          <img src="images/logo-palombes.webp" alt="Logo Les Palombes" class="footer-logo-img">
+          <img src="images/logo-palombes.png" alt="Logo Les Palombes" class="footer-logo-img">
         </div>
         <h3>Les Palombes</h3>
         <p>La Ménitré, 49250</p>
@@ -156,5 +156,35 @@
     </div>
     <p class="copyright">&copy; 2025 Les Palombes – Tous droits réservés</p>
   </footer>
+  
+  <script>
+    // Script pour le menu mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navMenu = document.getElementById('nav-menu');
+      
+      mobileMenu.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      
+      // Fermer le menu quand un lien est cliqué
+      const navLinks = document.querySelectorAll('#nav-menu a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
+        });
+      });
+      
+      // Script pour le formulaire de contact
+      const contactForm = document.querySelector('form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+          this.reset();
+        });
+      }
+    });
+  </script>
 </body>
 </html>
