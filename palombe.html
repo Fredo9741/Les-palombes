@@ -5,557 +5,180 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Découvrez les activités touristiques et lieux à visiter autour des Palombes, au cœur du Val de Loire, entre Angers et Saumur.">
   <title>Activités & Tourisme – Les Palombes</title>
-  <link rel="icon" href="images/logo-palombes-favicon.webp" type="image/webp">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <style>
-    /* Variables CSS pour les couleurs des Palombes */
-    :root {
-      --palombe-blue-light: #d3e0ea;
-      --palombe-blue-medium: #a9c0c9;
-      --palombe-blue-dark: #4a6a75;
-      --palombe-green: #5a825e;
-      --palombe-green-dark: #3c5e45;
-      --palombe-grey: #f5f5f5;
-      --palombe-white: #ffffff;
-      --palombe-text-dark: #333;
-    }
-
-    /* Styles de base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      background-color: var(--palombe-grey);
-      color: var(--palombe-text-dark);
-      padding-top: 80px; /* Add padding to prevent fixed header covering content */
-      position: relative;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px; /* Add horizontal padding */
-    }
-
-    /* Header fixe amélioré */
-    header {
-      background: linear-gradient(135deg, var(--palombe-blue-light) 0%, var(--palombe-blue-medium) 100%);
-      padding: 10px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: fixed; /* Make header fixed */
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000; /* Ensure header is above content */
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 15px; /* Space between logo and title */
-    }
-
-    .site-logo {
-      width: 60px; /* Smaller logo in fixed header */
-      height: auto;
-    }
-
-    header h1 {
-      font-family: 'Merriweather', serif; /* Use Merriweather for H1 */
-      font-size: 2.5em; /* Smaller H1 in fixed header */
-      color: var(--palombe-blue-dark);
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-
-    /* Styles de navigation */
-    nav ul {
-      display: flex;
-      gap: 15px; /* More space between nav links */
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a {
-      display: block;
-      padding: 10px 15px; /* Increased padding */
-      color: var(--palombe-blue-dark);
-      font-family: 'Roboto', sans-serif;
-      font-size: 1em;
-      font-weight: 500;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      background-color: var(--palombe-blue-dark);
-      color: var(--palombe-white);
-    }
-
-    /* Menu Burger pour mobile */
-    .menu-toggle {
-        display: none; /* Hidden by default */
-        font-size: 1.5em;
-        color: var(--palombe-blue-dark);
-        cursor: pointer;
-        margin-right: 10px;
-    }
-
-
-    /* Styles pour le contenu principal */
-    main {
-      padding: 30px 0; /* Add vertical padding to main */
-    }
-
-    h2, h3 {
-      color: var(--palombe-blue-dark);
-      font-family: 'Merriweather', serif; /* Use Merriweather for H2/H3 */
-    }
-
-    h2 {
-      font-size: 2.2em;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    h3 {
-      font-size: 1.6em;
-      margin: 15px 0 10px;
-    }
-
-    /* Section d'introduction */
-    .intro-section {
-      background-color: var(--palombe-white);
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .intro-section p {
-      max-width: 900px;
-      margin: 0 auto 20px;
-      line-height: 1.8;
-      font-size: 1.1em;
-      color: #555;
-    }
-
-    /* Grille pour les activités et lieux */
-    .activities-grid,
-    .places-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted min width */
-      gap: 30px; /* Increased gap */
-      margin-bottom: 40px;
-    }
-
-    .activity-card,
-    .place-card {
-      background-color: var(--palombe-white);
-      border-radius: 12px; /* Slightly more rounded corners */
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex; /* Use flex for card content structure */
-      flex-direction: column;
-    }
-
-    .activity-card:hover,
-    .place-card:hover {
-      transform: translateY(-8px); /* More pronounced hover effect */
-      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-    }
-
-    .activity-image,
-    .place-image {
-      height: 220px; /* Slightly increased image height */
-      overflow: hidden;
-    }
-
-    .activity-image img,
-    .place-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .activity-card:hover .activity-image img,
-    .place-card:hover .place-image img {
-      transform: scale(1.1); /* More pronounced zoom effect */
-    }
-
-    .activity-content,
-    .place-content {
-      padding: 20px;
-      flex-grow: 1; /* Allow content to fill space */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; /* Distribute space */
-    }
-
-    .activity-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .activity-title i {
-      color: var(--palombe-green);
-      font-size: 1.4em; /* Slightly larger icon */
-    }
-
-    .activity-description,
-    .place-description {
-      margin-bottom: 15px;
-      line-height: 1.7;
-      color: #555;
-    }
-
-    .activity-link,
-    .place-link { /* Combined link styles */
-      display: inline-block;
-      color: var(--palombe-blue-dark);
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease, text-decoration 0.3s ease;
-      margin-top: auto; /* Push link to the bottom of the flex container */
-    }
-
-    .activity-link i,
-    .place-link i {
-        margin-left: 5px;
+    <link rel="icon" href="images/logo-palombes-favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Styles spécifiques pour la page des activités touristiques */
+      .intro-section {
+        margin-bottom: 40px;
+      }
+      
+      .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+      
+      .activity-card {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        overflow: hidden;
         transition: transform 0.3s ease;
-    }
-
-     .activity-link:hover i,
-    .place-link:hover i {
-        transform: translateX(5px); /* Little arrow animation */
-    }
-
-
-    .activity-link:hover,
-    .place-link:hover {
-      color: var(--palombe-green-dark);
-      text-decoration: underline;
-    }
-
-    /* Section des lieux à visiter */
-    .visit-section {
-      margin-top: 50px;
-    }
-
-    .place-info {
-      margin-bottom: 15px;
-      display: flex;
-      flex-wrap: wrap; /* Allow wrapping on small screens */
-      gap: 15px;
-      font-size: 0.95em;
-      color: #666;
-    }
-
-    .place-info span {
-      display: flex;
-      align-items: center;
-    }
-
-    .place-info i {
-      margin-right: 5px;
-      color: var(--palombe-green);
-    }
-
-    /* Carte interactive */
-    .map-section {
-      margin-top: 50px;
-      background-color: var(--palombe-white);
-      padding: 40px; /* Increased padding */
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .map-container {
-      height: 500px; /* Consistent height */
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Footer */
-    footer {
-      background-color: var(--palombe-blue-light);
-      padding: 40px 20px; /* Add horizontal padding */
-      margin-top: 60px; /* Increased margin top */
-      color: var(--palombe-blue-dark);
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-info h3 {
-      font-family: 'Merriweather', serif; /* Use Merriweather */
-      font-size: 1.8em;
-      color: var(--palombe-blue-dark);
-      margin-bottom: 15px;
-    }
-
-    .footer-info p {
-      margin-bottom: 8px; /* Increased margin */
-      font-size: 1em;
-    }
-
-     .footer-nav h4, .footer-social h4 {
-        font-size: 1.2em;
+      }
+      
+      .activity-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .activity-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .activity-content {
+        padding: 20px;
+      }
+      
+      .activity-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
         margin-bottom: 15px;
+      }
+      
+      .activity-title i {
         color: var(--palombe-blue-dark);
-     }
-
-    .footer-nav ul, .footer-social ul {
-      list-style: none;
-    }
-
-    .footer-nav li {
-      margin-bottom: 10px;
-    }
-
-    .footer-nav a {
+        font-size: 1.3em;
+      }
+      
+      .activity-description {
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+      
+      .activity-link {
+        display: inline-flex;
+        align-items: center;
         color: var(--palombe-blue-dark);
+        font-weight: 500;
         text-decoration: none;
-        transition: color 0.3s ease;
-        font-size: 1em;
-    }
-
-    .footer-nav a:hover {
-        color: var(--palombe-green-dark);
-        text-decoration: underline;
-    }
-
-
-    .social-icons {
-      display: flex;
-      gap: 15px;
-      margin-top: 10px;
-    }
-
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background-color: var(--palombe-blue-dark);
-      color: var(--palombe-white);
-      border-radius: 50%;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      font-size: 1.2em;
-    }
-
-    .social-icons a:hover {
-      background-color: var(--palombe-green);
-      transform: scale(1.1);
-    }
-
-    .copyright {
-      text-align: center;
-      margin-top: 40px; /* Increased margin top */
-      color: var(--palombe-green-dark);
-      font-size: 0.95em;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-        .header-content {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px; /* Reduce gap */
-        }
-
-        .logo-title {
-            width: 100%;
-            justify-content: center; /* Center logo and title */
-            gap: 10px;
-        }
-
-        header h1 {
-            font-size: 2em; /* Adjust H1 size */
-        }
-
-        .site-logo {
-             width: 50px; /* Adjust logo size */
-        }
-
-        nav {
-            width: 100%;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        nav ul {
-            flex-direction: column;
-            gap: 5px; /* Reduce gap */
-        }
-
-        nav a {
-            padding: 8px 10px; /* Adjust padding */
-            font-size: 0.95em;
-        }
-
-        /* Hide desktop nav and show mobile toggle */
-         .menu-toggle {
-            display: block; /* Show toggle on mobile */
-            position: absolute; /* Position absolute for placement */
-            right: 20px;
-            top: 20px;
-            z-index: 1001; /* Ensure toggle is clickable */
-        }
-
-        nav ul {
-            display: none; /* Hide nav by default */
-        }
-
-        nav.active ul {
-            display: flex; /* Show nav when active */
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-            border-radius: 5px;
-            padding: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-
-        .intro-section,
-        .map-section {
-            padding: 20px;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        h3 {
-            font-size: 1.4em;
-        }
-
-        .activities-grid,
+        gap: 5px;
+      }
+      
+      .activity-link i {
+        transition: transform 0.3s ease;
+      }
+      
+      .activity-link:hover i {
+        transform: translateX(5px);
+      }
+      
+      /* Styles pour les cartes de lieux */
+      .places-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+      
+      .place-card {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      
+      .place-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .place-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .place-content {
+        padding: 20px;
+      }
+      
+      .place-info {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 10px 0 15px;
+        font-size: 0.9em;
+        color: #555;
+      }
+      
+      .place-info i {
+        color: var(--palombe-blue-dark);
+        margin-right: 5px;
+      }
+      
+      .place-description {
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+      
+      /* Adaptation responsive */
+      @media (max-width: 900px) {
         .places-container {
-            grid-template-columns: 1fr; /* Stack columns */
-            gap: 20px;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         }
-
-        .map-container {
-            height: 350px;
+      }
+      
+      @media (max-width: 600px) {
+        .activities-grid, .places-container {
+          grid-template-columns: 1fr;
         }
-
-        .footer-content {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-
-        .social-icons {
-            justify-content: center;
-        }
-         .footer-nav ul {
-            padding-top: 10px; /* Add space above mobile footer nav */
-         }
-    }
-
-    @media (max-width: 480px) {
-         header h1 {
-            font-size: 1.8em;
-         }
-         .site-logo {
-             width: 40px;
-         }
-        .logo-title {
-             gap: 10px;
-        }
-        .intro-section, .map-section {
-            padding: 15px;
-        }
-        h2 {
-            font-size: 1.6em;
-        }
-         h3 {
-            font-size: 1.3em;
-         }
-        .activity-image, .place-image {
-            height: 180px;
-        }
-         .activity-content, .place-content {
-             padding: 15px;
-         }
-        .place-info {
-            flex-direction: column;
-            gap: 8px;
-        }
-        .social-icons a {
-             width: 35px;
-             height: 35px;
-             font-size: 1em;
-        }
-    }
-  </style>
+      }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="container header-content">
-        <div class="logo-title">
-          <img src="images/341Pwo01.svg" alt="Logo Les Palombes" class="site-logo">
-          <h1>Les Palombes</h1>
+    <header>
+        <div class="container">
+          <div class="header-content">
+            <div class="logo-title">
+              <img src="images/341Pwo01.svg" alt="Logo Les Palombes" class="site-logo">
+              <h1>Les Palombes</h1>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+              <i class="fas fa-bars"></i>
+            </div>
+            <nav id="nav-menu">
+              <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="appartements.html">Appartements</a></li>
+                <li><a href="camping.html">Camping</a></li>
+                <li><a href="jardin.html">Jardin</a></li>
+                <li><a href="palombe.html" class="active">Visite touristique</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <nav>
-            <ul id="nav-menu">
-              <li><a href="index.html">Accueil</a></li>
-              <li><a href="appartements.html">Appartements</a></li>
-              <li><a href="camping.html">Camping</a></li>
-              <li><a href="jardin.html">Jardin</a></li>
-              <li><a href="activite-tourisme.html" class="active">Activités & Tourisme</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i> </div>
-    </div>
-  </header>
+      </header>
 
   <main class="container">
     <section class="intro-section">
       <h2>Activités & Tourisme en Val de Loire</h2>
-      <p>Bienvenue au cœur du Val de Loire ! Situé à La Ménitré, entre Angers et Saumur, l'éco-lieu Les Palombes vous offre un point de départ idéal pour explorer cette magnifique région classée au patrimoine mondial de l'UNESCO. Découvrez une multitude d'activités et de sites d'exception à proximité.</p>
+      <p class="intro-text">Bienvenue au cœur du Val de Loire ! Situé à La Ménitré, entre Angers et Saumur, l'éco-lieu Les Palombes vous offre un point de départ idéal pour explorer cette magnifique région classée au patrimoine mondial de l'UNESCO. Découvrez une multitude d'activités et de sites d'exception à proximité.</p>
     </section>
 
-    <section class="activities-section">
+    <section>
       <h2>Activités à faire</h2>
       <div class="activities-grid">
         <article class="activity-card">
           <div class="activity-image">
-            <img src="images/loire_soleil.webp" alt="La Loire à Vélo">
+            <img src="images/tourisme/loire_a_velo.webp" alt="La Loire à Vélo">
           </div>
           <div class="activity-content">
             <div class="activity-title">
@@ -569,33 +192,33 @@
 
         <article class="activity-card">
           <div class="activity-image">
-            <img src="images/coucher-soleil-loire.webp" alt="Balade en bateau sur la Loire"> </div>
+            <img src="images/tourisme/bateau_traditionnel_loire.webp" alt="Balade en bateau sur la Loire"> </div>
           <div class="activity-content">
             <div class="activity-title">
               <i class="fas fa-ship"></i>
               <h3>Balade en bateau traditionnel</h3>
             </div>
             <p class="activity-description">Découvrez la Loire autrement à bord d'une toue cabanée, bateau traditionnel ligérien. Admirez les paysages et la faune depuis le fleuve.</p>
-            <a href="#" class="activity-link">Réserver une balade <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.anjou-tourisme.com/fr/diffusio/loisirs/bateau-traditionnel-loire-en-bateau-mauges-sur-loire_TFOLOIPDL049V501QQ8" class="activity-link">Réserver une balade <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="activity-card">
           <div class="activity-image">
-            <img src="images/bassinheron.webp" alt="Randonnée"> </div>
+            <img src="images/tourisme/randonné.webp" alt="Randonnée"> </div>
           <div class="activity-content">
             <div class="activity-title">
               <i class="fas fa-hiking"></i>
               <h3>Randonnée pédestre</h3>
             </div>
             <p class="activity-description">De nombreux sentiers de randonnée vous permettent d'explorer la richesse naturelle de la région. Parcourez les bords de Loire, les forêts et les coteaux viticoles.</p>
-            <a href="#" class="activity-link">Découvrir les itinéraires <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.anjou-tourisme.com/fr/voir-faire/balades/toutes-les-balades/lieu/la-menitre?srsltid=AfmBOopbKrJm9O5KIMEjefkb8-BmFCiGkqQTi5RtD-l211N6HnxVEFwQ" class="activity-link">Découvrir les itinéraires <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="activity-card">
           <div class="activity-image">
-            <img src="images/verger.webp" alt="Dégustation de vins">
+            <img src="images/tourisme/oenotourisme.webp" alt="Dégustation de vins">
           </div>
           <div class="activity-content">
             <div class="activity-title">
@@ -603,44 +226,44 @@
               <h3>Œnotourisme</h3>
             </div>
             <p class="activity-description">Partez à la découverte des vignobles de la région et dégustez les vins d'Anjou-Saumur. De nombreux domaines proposent des visites et dégustations.</p>
-            <a href="#" class="activity-link">Explorer les domaines <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.valdeloire-france.com/decouvrir/echappees-gourmandes/oenotourisme-a-la-decouverte-des-vins-du-val-de-loire/" class="activity-link">Explorer les domaines <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="activity-card">
           <div class="activity-image">
-            <img src="images/coucher-soleil-loire.webp" alt="Pêche en Loire"> </div>
+            <img src="images/tourisme/peche.webp" alt="Pêche en Loire"> </div>
           <div class="activity-content">
             <div class="activity-title">
               <i class="fas fa-fish"></i>
               <h3>Pêche</h3>
             </div>
             <p class="activity-description">La Loire et ses affluents regorgent de poissons. Amateurs de pêche, n'oubliez pas votre matériel pour une journée détente au bord de l'eau.</p>
-            <a href="#" class="activity-link">Informations pêche <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.anjou-tourisme.com/fr/diffusio/loisirs/parcours-peche-de-port-saint-maur-la-menitre_TFOLOIPDL049V50GB0Y?srsltid=AfmBOor25GNobWtIvB9gqI8eqw80LAnpY5A4wbUu2-8brSQRdZmffm5J" class="activity-link">Informations pêche <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="activity-card">
           <div class="activity-image">
-            <img src="images/logement.webp" alt="Marché"> </div>
+            <img src="images/tourisme/marché.webp" alt="Marché"> </div>
           <div class="activity-content">
             <div class="activity-title">
               <i class="fas fa-shopping-basket"></i>
               <h3>Marchés locaux</h3>
             </div>
             <p class="activity-description">Découvrez les produits du terroir sur les marchés de la région. Fruits, légumes, fromages et spécialités locales vous attendent pour régaler vos papilles.</p>
-            <a href="#" class="activity-link">Calendrier des marchés <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.destination-angers.com/tourisme/inspirations/escapades-epicuriennes-vin-gastronomie-angers/marches-angers-et-alentour/" class="activity-link">Calendrier des marchés <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="visit-section">
+    <section>
       <h2>Lieux à visiter</h2>
       <div class="places-container">
         <article class="place-card">
           <div class="place-image">
-            <img src="images/coucher-soleil-loire.webp" alt="Château de Saumur"> </div>
+            <img src="images/tourisme/chateau_saumur.webp" alt="Château de Saumur"> </div>
           <div class="place-content">
             <h3>Château de Saumur</h3>
             <div class="place-info">
@@ -648,13 +271,13 @@
               <span><i class="fas fa-clock"></i> 10h-18h</span>
             </div>
             <p class="place-description">Surplombant la Loire, ce château du XIVe siècle ressemble à un château de conte de fées avec ses tours élancées. Il abrite aujourd'hui un musée des arts décoratifs.</p>
-            <a href="#" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.chateau-saumur.fr/" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="place-card">
           <div class="place-image">
-            <img src="images/verger.webp" alt="Abbaye de Fontevraud"> </div>
+            <img src="images/tourisme/abbaye_fontevraud.webp" alt="Abbaye de Fontevraud"> </div>
           <div class="place-content">
             <h3>Abbaye Royale de Fontevraud</h3>
             <div class="place-info">
@@ -662,13 +285,13 @@
               <span><i class="fas fa-clock"></i> 9h30-19h</span>
             </div>
             <p class="place-description">La plus grande cité monastique d'Europe, abritant les gisants d'Aliénor d'Aquitaine et de Richard Cœur de Lion. Un lieu chargé d'histoire à ne pas manquer.</p>
-            <a href="#" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.azay-chinon-valdeloire.com" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="place-card">
           <div class="place-image">
-            <img src="images/bassinheron.webp" alt="Angers"> </div>
+            <img src="images/tourisme/chateau_angers.webp" alt="Château d'Angers"> </div>
           <div class="place-content">
             <h3>Château d'Angers</h3>
             <div class="place-info">
@@ -676,13 +299,13 @@
               <span><i class="fas fa-clock"></i> 10h-17h30</span>
             </div>
             <p class="place-description">Forteresse du XIIIe siècle abritant la tapisserie de l'Apocalypse, chef-d'œuvre médiéval unique au monde de 104 mètres de long.</p>
-            <a href="#" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.chateau-angers.fr/" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="place-card">
           <div class="place-image">
-            <img src="images/caravane.webp" alt="Bioparc de Doué-la-Fontaine"> </div>
+            <img src="images/tourisme/bioparc-de-doue-la-fontaine.webp" alt="Bioparc de Doué-la-Fontaine"> </div>
           <div class="place-content">
             <h3>Bioparc de Doué-la-Fontaine</h3>
             <div class="place-info">
@@ -690,13 +313,13 @@
               <span><i class="fas fa-clock"></i> 9h-19h</span>
             </div>
             <p class="place-description">Un zoo unique creusé dans le tuffeau, roche calcaire de la région. Découvrez plus de 1200 animaux dans un cadre troglodytique exceptionnel.</p>
-            <a href="#" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.bioparc-zoo.fr/" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="place-card">
           <div class="place-image">
-            <img src="images/loire_soleil.webp" alt="Cadre Noir de Saumur"> </div>
+            <img src="images/tourisme/cadre-noir_standard.webp" alt="Cadre Noir de Saumur"> </div>
           <div class="place-content">
             <h3>Cadre Noir de Saumur</h3>
             <div class="place-info">
@@ -704,13 +327,13 @@
               <span><i class="fas fa-clock"></i> Horaires variables</span>
             </div>
             <p class="place-description">École française d'équitation de renommée mondiale, le Cadre Noir propose des visites guidées et des représentations équestres impressionnantes.</p>
-            <a href="#" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.ifce.fr/" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
 
         <article class="place-card">
           <div class="place-image">
-            <img src="images/coucher-soleil-loire.webp" alt="Villages troglodytes"> </div>
+            <img src="images/tourisme/troglodyte.webp" alt="Villages troglodytes"> </div>
           <div class="place-content">
             <h3>Villages troglodytes</h3>
             <div class="place-info">
@@ -718,7 +341,7 @@
               <span><i class="fas fa-clock"></i> Horaires variables</span>
             </div>
             <p class="place-description">Découvrez l'habitat creusé dans la roche, typique de la région. Visitez les caves, restaurants et hébergements troglodytes pour une expérience unique.</p>
-            <a href="#" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.enpaysdelaloire.com/visites/autres-monuments-et-patrimoines/les-maisons-troglodytes-de-forges" class="activity-link">Plus d'informations <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
       </div>
@@ -748,7 +371,7 @@
           <li><a href="appartements.html">Appartements</a></li>
           <li><a href="camping.html">Camping</a></li>
           <li><a href="jardin.html">Jardin</a></li>
-          <li><a href="activite-tourisme.html">Activités & Tourisme</a></li>
+          <li><a href="palombe.html">Activités & Tourisme</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -757,29 +380,27 @@
         <div class="social-icons">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
     </div>
-    <p class="copyright">© 2025 Les Palombes – Tous droits réservés</p>
+    <div class="copyright">
+      <div class="container">
+        <p>&copy; 2023 Les Palombes - Tous droits réservés</p>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // Simple JavaScript for mobile menu toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-
-    mobileMenu.addEventListener('click', () => {
+    // Script pour le menu mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navMenu = document.getElementById('nav-menu');
+      
+      mobileMenu.addEventListener('click', function() {
         navMenu.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked (optional, but good UX)
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
+      });
     });
   </script>
-
 </body>
 </html>
